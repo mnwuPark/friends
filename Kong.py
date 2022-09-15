@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-token = "MTAxNTEyNTIxNTkyNTI1NjE5Mg.GWtwvk.1Xi6LS7geiURCpPrN2oufzFqOFNvB9jzuwPKjY"
+token = "**"
 
 intents = discord.Intents.default()
 intents.message_content = True
