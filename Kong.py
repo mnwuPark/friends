@@ -5,7 +5,7 @@ import time
 import asyncio
 import bs4
 from selenium import webdriver
-from selenium.webdriver.chrome.option import Options
+from selenium.webdriver.chrome.options import Options
 from discord.utils import get_slots
 from discord import FFmpegPCMAudio
 
@@ -44,5 +44,19 @@ async def leave(ctx):
 @bot.command()
 async def say(ctx, *, text):
    await ctx.send(embed = discord.Embed(title = "Say", description = text, color = 0xffffff))
+
+@bot.command()
+async def URL재생(ctx, *, url):
+    YDL_OPTIONS = {'format': 'bestaudio','noplaylist':'True'}
+    FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
+
+    if not vc.is_playing():
+        with YoutubeDL(YDL_OPTIONS) as ydl:
+            info = ydl.extract_info(url, download=False)
+        URL = info['formats'][0]['url']
+        vc.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
+        await ctx.send(embed = discord.Embed(title= "Play Music", description = "Now played Music: " + url, color = 0x00ff00))
+    else:
+        await ctx.send("Music has been played now!")
 
 bot.run(token)
