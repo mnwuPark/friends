@@ -1,5 +1,13 @@
 import discord
 from discord.ext import commands
+from youtube_dl import YoutubeDL
+import time
+import asyncio
+import bs4
+from selenium import webdriver
+from selenium.webdriver.chrome.option import Options
+from discord.utils import get_slots
+from discord import FFmpegPCMAudio
 
 token = "**"
 
