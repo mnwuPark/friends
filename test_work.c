@@ -10,6 +10,8 @@ void Init();
 void Disp_State(unsigned char Connect_nums);
 unsigned char Connect_State();
 
+unsigned char nums [8]; 
+
 int main(void) {
     Init();
     while (1) {
@@ -27,6 +29,6 @@ void Disp_State(unsigned char Connect_nums) {
 }
 
 unsigned char Connect_State() {
-    unsigned char nums;
+     
     return nums;
 }
