@@ -21,7 +21,7 @@ async def on_ready():
     print("Login to:", bot.user.name)
     print('Login Bot id:', bot.user.id)
     print("connection was succesful")
-    await bot.change_presence(status = discord.Status.online, activity = None)
+    await bot.change_presence(status = discord.Status.online, activity = discord.Game("Uploading..."))
 
 @bot.command()
 async def join(ctx):
