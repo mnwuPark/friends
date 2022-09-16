@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
 // HDMI SWITCH B.1.0
+
 /*
 조건
 1. 연결된 순서 기억
@@ -35,4 +36,8 @@ void Disp_State(unsigned char Connect_nums) {
 unsigned char Connect_State() {
      
     return nums;
+}
+
+void Starting_Logo_Disp() {
+    printf("");
 }
