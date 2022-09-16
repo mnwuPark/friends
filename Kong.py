@@ -1,3 +1,4 @@
+
 import discord
 from discord.ext import commands
 from youtube_dl import YoutubeDL
@@ -84,5 +85,13 @@ async def play(ctx, *, msg):
         vc.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
     else:
         await ctx.send(embed = discord.Embed(title = "Music", description = "Can't play the Music: Just played Music now :!", color = 0xff0000))
+
+@bot.command()
+async def stop(ctx):
+    if vc.is_playing():
+        vc.pause()
+        await ctx.send(embed = discord.Embed(title= "stop", description = "Stop the Music: " + entireText, color = 0x00ff00))
+    else:
+        await ctx.send("Music hasn't playing now")
 
 bot.run(token)
