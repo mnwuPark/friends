@@ -33,7 +33,7 @@ void Init() //이니셜라이팅 함수 시작
     
     PORTA = 0x00; //PORTA의 출력 설정
     PORTC = 0xff; //PORTC의 출력 설정
-    PORTE = 0x00; //PORTE의 출력 설정
+    PORTE = 0x00; //PORTE의 출력 설정
     
     EIMSK = 0x80; //외부인터럽트마스크설정 0b10000000 INT7만 활성화
     EICRA = 0x00; //외부인터럽트레지스터A 0b00000000 
