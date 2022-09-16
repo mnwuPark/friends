@@ -1,27 +1,83 @@
 {
+    "version": "2.0.0",
+    "runner": "terminal",
+    "type": "shell",
+    "echoCommand": true,
+    "presentation": {
+        "reveal": "always"
+    },
     "tasks": [
         {
+            "label": "save and compile for C++",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-g",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": "build",
+            "problemMatcher": {
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "save and compile for C",
+            "command": "gcc",
+            "args": [
+                "${file}",
+                "-g",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": "build",
+            "problemMatcher": {
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "execute",
+            "command": "cmd",
+            "group": "test",
+            "args": [
+                "/C",
+                "${fileDirname}\\${fileBasenameNoExtension}"
+            ]
+        },
+        {
             "type": "cppbuild",
-<<<<<<< HEAD
             "label": "C/C++: gcc.exe 활성 파일 빌드",
             "command": "C:\\MinGW\\bin\\gcc.exe",
-=======
-            "label": "C/C++: g++.exe 활성 파일 빌드",
-            "command": "C:\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
->>>>>>> 5de76652bfc064731581253609b2a9e377198e77
             "args": [
-                "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-<<<<<<< HEAD
                 "cwd": "${fileDirname}"
-=======
-                "cwd": "C:\\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\\mingw64\\bin"
->>>>>>> 5de76652bfc064731581253609b2a9e377198e77
             },
             "problemMatcher": [
                 "$gcc"
@@ -32,6 +88,5 @@
             },
             "detail": "디버거에서 생성된 작업입니다."
         }
-    ],
-    "version": "2.0.0"
+    ]
 }

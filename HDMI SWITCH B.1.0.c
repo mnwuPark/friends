@@ -35,7 +35,7 @@ void Disp_State(unsigned char Connect_nums) {
 
 unsigned char Connect_State() {
      
-    //return 0x00;
+    return 0x00;
 }
 
 void Starting_Logo_Disp() {
