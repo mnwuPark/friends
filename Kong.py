@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from discord.utils import get_slots
 from discord import FFmpegPCMAudio
 
-token = ""
+token = "token"
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -18,7 +18,8 @@ bot = commands.Bot(command_prefix = ".", intents = intents)
 
 @bot.event
 async def on_ready():
-    print("Login to: ", bot.user.name)
+    print("Login to:", bot.user.name)
+    print('Login Bot id:', bot.user.id)
     print("connection was succesful")
     await bot.change_presence(status = discord.Status.online, activity = None)
 
@@ -83,7 +84,7 @@ async def play(ctx, *, msg):
         await ctx.send(embed = discord.Embed(title= "Play Music", description = "Now played Music: " + entireText, color = 0x00ff00))
         vc.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
     else:
-        await ctx.send(embed = discord.Embed(title = "Music", description = "Can't play the Music: Just played Music now :!", color = 0xff0000))
+        await ctx.send(embed = discord.Embed(title = "caution", description = "Can't play the Music: Just played Music now :!", color = 0xff0000))
 
 @bot.command()
 async def stop(ctx):
@@ -91,14 +92,14 @@ async def stop(ctx):
         vc.pause()
         await ctx.send(embed = discord.Embed(title= "stop", description = "Stop the Music: " + entireText, color = 0x00ff00))
     else:
-        await ctx.send("Music hasn't playing now")
+        await ctx.send(embed = discord.Embed(title = "caution", description = "Music hasn't playing now", color = 0xff0000))
 
 @bot.command()
 async def replay(ctx):
     try:
         vc.resume()
     except:
-         await ctx.send("Music hasn't playing now")
+         await ctx.send(embed = discord.Embed(title = "caution", description = "Music hasn't playing now", color = 0xff0000))
     else:
          await ctx.send(embed = discord.Embed(title= "Replay", description = "Replay the Music: " + entireText, color = 0x00ff00))
 
@@ -108,6 +109,6 @@ async def q(ctx):
         vc.stop()
         await ctx.send(embed = discord.Embed(title= "Turn off", description = "Turn off the Music: " + entireText, color = 0x00ff00))
     else:
-        await ctx.send("Music hasn't playing now")
+        await ctx.send(embed = discord.Embed(title = "caution", description = "Music hasn't playing now", color = 0xff0000))
 
 bot.run(token)
