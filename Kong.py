@@ -94,4 +94,13 @@ async def stop(ctx):
     else:
         await ctx.send("Music hasn't playing now")
 
+@bot.command()
+async def replay(ctx):
+    try:
+        vc.resume()
+    except:
+         await ctx.send("Music hasn't playing now")
+    else:
+         await ctx.send(embed = discord.Embed(title= "Replay", description = "Replay the Music: " + entireText, color = 0x00ff00))
+
 bot.run(token)
