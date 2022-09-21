@@ -1,0 +1,22 @@
+#include <stdio.h>
+int queue[8];
+int head=0; 
+
+int main (){
+	scanf("%d", &head);
+	
+	if (queue[head]) {
+		queue[head] = 0;
+	}
+	else {
+		queue[head] = 1;
+	}
+	head = 0;
+	while (head < (sizeof(queue)/sizeof(int))) {
+ 	 	printf("%d ", queue[head++]);
+	}
+	printf("\n");
+
+	main();
+	return 0;
+}
