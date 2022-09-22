@@ -1,0 +1,13 @@
+
+nums[9];
+
+scanf("/d", num);
+short k = 0;
+for (int j = 0; j < sizeof(nums)/sizeof(int); j++) {
+	if (nums[j] == num) {
+		k++;
+	}
+}
+if (k == 0) {
+	push[num];
+}
